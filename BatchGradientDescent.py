@@ -25,9 +25,18 @@ class BatchGradientDescent:
         self.weights = np.ones((X_b.shape[1], 1))
 
         for epoch in range(self.epochs):
+
+            # Predict y using weights
             y_pred = X_b.dot(self.weights)
+
+            # Calculate gradients
             gradients = 2/m * X_b.T.dot(y_pred - y)
+
+            # Modify weights in steepest descent
             self.weights = self.weights - self.learning_rate * gradients
+
+            # Calculate RMSE
+            cost = np.sqrt(np.square(np))
 
         print("Weights", self.weights)
 
